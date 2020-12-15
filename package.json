@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon app.js"
   },
-  "author": "navin@telusko",
+  "author": "paritoshtech",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
