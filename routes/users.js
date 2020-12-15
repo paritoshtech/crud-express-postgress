@@ -4,8 +4,9 @@ const User = require("../models/users");
 
 router.get("/", async (req, res) => {
   try {
-    console.log("User.getAllUsers");
-    const user = await User.getAllUsers();
+    // us = new User("PP", 26, "ds@ds");
+    us = new User();
+    const user = await us.getAllUsers();
     res.json(user);
   } catch (err) {
     res.send("Error " + err);
@@ -15,12 +16,13 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   const user = new User({
     name: req.body.name,
-    tech: req.body.tech,
-    sub: req.body.sub,
+    email: req.body.email,
+    phone: req.body.phone,
   });
 
   try {
     const a1 = await user.save();
+    // console.log(a1);
     res.json(a1);
   } catch (err) {
     res.send("Error");
