@@ -1,21 +1,12 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const url = 'mongodb://localhost/AlienDBex'
+const express = require("express");
 
-const app = express()
+const app = express();
 
-mongoose.connect(url, {useNewUrlParser:true})
-const con = mongoose.connection
+app.use(express.json());
 
-con.on('open', () => {
-    console.log('connected...')
-})
-
-app.use(express.json())
-
-const alienRouter = require('./routes/aliens')
-app.use('/aliens',alienRouter)
+const userRouter = require("./routes/users");
+app.use("/users", userRouter);
 
 app.listen(9000, () => {
-    console.log('Server started')
-})
+  console.log("Server started");
+});
